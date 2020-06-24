@@ -23,6 +23,8 @@ function counter(state = initialState, action) {
         diff: action.diff
       };
     case INCREASE:
+      console.log('여기는 리듀서 increase!!!');
+
       return {
         ...state,
         number: state.number + state.diff
