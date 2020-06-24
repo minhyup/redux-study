@@ -1,0 +1,19 @@
+{
+  "extends": [
+    "react-app",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "prettier/prettier": ["error", {
+      "endOfLine": "auto"
+    }],
+    "react/prop-types": "off",
+    "no-var": "error",
+    "no-dupe-keys": "error",
+    "spaced-comment": ["error", "always", {
+      "line": { "markers": ["!"] },
+      "block": { "balanced": true }
+    }]
+  }
+}

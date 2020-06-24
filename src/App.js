@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import CounterContainer from './containers/CounterContainer';
+import TodosContainer from './containers/TodosContainer';
 
 function App() {
+  const [data, setData] = useState('');
+  const test = () => {
+    console.log('hello');
+  };
+
+  const onChange = (e) => {
+    console.log('change!', e.target.value);
+    setData(e.target.value);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <CounterContainer />
+      <hr />
+      <TodosContainer />
+      <input onChange={onChange} value={data} />
+      <input onChange={test} />
     </div>
   );
 }
