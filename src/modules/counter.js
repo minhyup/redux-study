@@ -8,6 +8,17 @@ export const setDiff = (diff) => ({ type: SET_DIFF, diff });
 export const increase = () => ({ type: INCREASE });
 export const decrease = () => ({ type: DECREASE });
 
+export const increaseAsync = () => {
+  return (dispatch, getState) => {
+    console.log('thunk state:::', getState);
+    setTimeout(() => {
+      console.log('setTimeOut 2초');
+
+      dispatch(increase());
+    }, 2000);
+  };
+};
+
 // 초기상태 선언
 const initialState = {
   number: 0,
@@ -24,7 +35,6 @@ function counter(state = initialState, action) {
       };
     case INCREASE:
       console.log('여기는 리듀서 increase!!!');
-
       return {
         ...state,
         number: state.number + state.diff

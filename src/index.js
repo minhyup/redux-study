@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import ReduxThunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import logger from 'redux-logger';
 
@@ -17,7 +18,9 @@ import myLogger from './middleware/myLogger';
 // const store = createStore(rootReducer, applyMiddleware(myLogger), composeWithDevTools());
 // const store = createStore(rootReducer, setStoreOptions());
 // const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(myLogger, logger)));
-const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(logger)));
+
+// 로거 사용시 맨 마지막으로~
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(ReduxThunk, logger)));
 console.log(store.getState());
 
 ReactDOM.render(

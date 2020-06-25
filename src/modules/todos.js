@@ -25,6 +25,9 @@ function todos(state = initialState, action) {
       console.log('Todo!!!!!!!::', action.id);
 
       return state.map((todo) => (todo.id === action.id ? { ...todo, done: !todo.done } : todo));
+    case 'test':
+      console.log('Todos 리듀서에서 test action 이 발생하였습니다.');
+      return state;
     default:
       return state;
   }
