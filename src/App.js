@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import { Route } from 'react-router-dom';
 import CounterContainer from './containers/CounterContainer';
 import TodosContainer from './containers/TodosContainer';
+import PostListContainer from './containers/PostListContainer';
+import PostListPage from './pages/PostListPage';
+import PostPage from './pages/PostPage';
 
 function App() {
   const [data, setData] = useState('');
@@ -52,6 +56,13 @@ function App() {
       <input onChange={test} />
       <button onClick={test2}>프로미스테스트</button>
       <button onClick={awaitTest}>await 테스트</button>
+      <br />
+      <hr />
+      <PostListContainer />
+      <br />
+      <hr />
+      <Route path="/" component={PostListPage} />
+      <Route path="/:id" component={PostPage} />
     </div>
   );
 }
