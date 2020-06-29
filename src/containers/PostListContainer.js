@@ -11,9 +11,11 @@ function PostListContainer() {
   });
   const dispatch = useDispatch();
 
+  // 컴포넌트 마은트 후 포스트 목록 요청
   useEffect(() => {
+    if (data) return;
     dispatch(getPosts());
-  }, [dispatch]);
+  }, [data, dispatch]);
 
   if (loading && !data) return <div>로딩중...</div>;
   if (error) return <div>에러발생</div>;

@@ -1,3 +1,4 @@
+import axios from 'axios';
 const sleep = (ms) => {
   return new Promise((resolve, reject) => {
     setInterval(() => {
@@ -14,12 +15,16 @@ const posts = [
 ];
 
 export const getPosts = async () => {
-  await sleep(1000);
-  return posts;
+  // await sleep(1000);
+  // return posts;
+
+  const { data } = await axios.get('http://localhost:4000/posts');
+  return data;
 };
 
 export const getPostById = async (id) => {
-  await sleep(1000);
-
-  return posts.find((post) => post.id === id);
+  // await sleep(1000);
+  // return posts.find((post) => post.id === id);
+  const { data } = await axios.get(`http://localhost:4000/posts/${id}`);
+  return data;
 };
